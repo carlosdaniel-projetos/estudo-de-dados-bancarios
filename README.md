@@ -1,10 +1,10 @@
-# Banco New | Análise de Dados & Business Intelligence
+# Projeto Bancário | Análise de Dados & Business Intelligence
 
 Projeto de portfólio desenvolvido com o objetivo de explorar a integração entre diferentes tecnologias e o fluxo de dados, desde a extração automatizada de informações do Kaggle utilizando Python e KaggleHub, passando pelo tratamento, transformação e modelagem dos dados no Power Query, até a construção de indicadores em DAX.
 
 O Power BI representa a etapa final desse processo, consolidando os conhecimentos adquiridos em um dashboard interativo para análise de atividade, inatividade e recuperação de clientes de um banco fictício.
 
-> **Aviso:** Banco New é uma marca fictícia. O conjunto de dados é sintético e histórico, utilizado exclusivamente para aprendizagem e demonstração de competências em Business Intelligence. Os indicadores não representam resultados de uma instituição financeira real.
+> **Aviso:** Projeto Bancário é uma marca fictícia. O conjunto de dados é sintético e histórico, utilizado exclusivamente para aprendizagem e demonstração de competências em Business Intelligence. Os indicadores não representam resultados de uma instituição financeira real.
 
 ## Objetivo
 
@@ -87,7 +87,7 @@ A utilização do Python permitiu:
 ## Fluxo dos dados
 
 
-![Fluxo completo do projeto Banco New](./fluxo-completo-banco-new-pbi.png)
+![Fluxo completo do projeto Bancário](./fluxo-completo-projeto-bancario.png)
 
 
 ## Modelo
