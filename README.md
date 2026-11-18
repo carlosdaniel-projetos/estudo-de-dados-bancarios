@@ -88,7 +88,7 @@ A utilização do Python permitiu:
 
 ## Fluxo dos dados
 
-![Fluxo completo do projeto Bancário](./fluxo-completo-projeto-bancario.png)
+![Fluxo completo do projeto de dados Bancário](./fluxo-dados-bancarios.png)
 
 A partir dos CSVs, o projeto passou a ter duas formas de consulta:
 
