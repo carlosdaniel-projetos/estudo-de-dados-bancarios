@@ -120,7 +120,7 @@ Visões construídas:
 - Análise por região, cidade e perfil/canal.
 - Resumo da movimentação no último mês registrado.
 
-![Dashboard Banco New](./dashboard-banco-new.png)
+![Dashboard Banco](./dashboard-projeto-bancario.png)
 
 ## Limitações
 
@@ -135,5 +135,6 @@ Visões construídas:
 
 O dashboard completo está disponível para exploração no Power BI Desktop.
 
-📊 **[Baixar Dashboard Banco New (.pbix)](./Banco%20New.pbix)**
+📊 **[Baixar Power BI de Projeto Banco (.pbix)](./An%C3%A1lise%20Banco%20-%20Carteira%20de%20Clientes.pbix)**
+
 
