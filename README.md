@@ -1,4 +1,4 @@
-# Projeto Bancário | Análise de Dados & Business Intelligence
+# Projeto de Dados Bancário | Análise de Dados & Business Intelligence
 
 Projeto de portfólio desenvolvido com o objetivo de explorar a integração entre diferentes tecnologias e o fluxo de dados, desde a extração automatizada de informações do Kaggle utilizando Python e KaggleHub, passando pelo tratamento, transformação e modelagem dos dados no Power Query, até a construção de indicadores em DAX.
 
