@@ -2,9 +2,11 @@
 
 Projeto de portfólio desenvolvido com o objetivo de explorar a integração entre diferentes tecnologias e o fluxo de dados, desde a extração automatizada de informações do Kaggle utilizando Python e KaggleHub, passando pelo tratamento, transformação e modelagem dos dados no Power Query, até a construção de indicadores em DAX.
 
-O Power BI representa a etapa final desse processo, consolidando os conhecimentos adquiridos em um dashboard interativo para análise de atividade, inatividade e recuperação de clientes de um banco fictício.
+A primeira versão do projeto foi desenvolvida no Power BI, com um dashboard interativo para análise de atividade, inatividade e recuperação de clientes de um banco fictício. O estudo evoluiu para uma versão web, com indicadores agregados no Supabase e hospedagem no Lovable.
 
-> **Aviso:** Projeto Bancário é uma marca fictícia. O conjunto de dados é sintético e histórico, utilizado exclusivamente para aprendizagem e demonstração de competências em Business Intelligence. Os indicadores não representam resultados de uma instituição financeira real.
+**[Acessar o dashboard público Banco](https://banco-carlos-daniel.lovable.app/)**
+
+> **Aviso:**  O conjunto de dados é sintético e histórico, utilizado exclusivamente para aprendizagem e demonstração de competências em Business Intelligence. Os indicadores não representam resultados de uma instituição financeira real.
 
 ## Objetivo
 
@@ -17,13 +19,14 @@ Construir uma visão gerencial interativa da carteira de clientes, monitorando a
 - **CSV:** arquivos de origem utilizados no relatório.
 - **Power Query (M):** importação, conversão de tipos e criação de ciclos trimestrais.
 - **Power BI + DAX:** modelagem, medidas e visualizações.
+- **Supabase:** armazenamento dos dados importados dos CSVs e disponibilização dos indicadores agregados da versão web.
+- **Lovable:** hospedagem e publicação do dashboard web.
 
 ## Fonte dos dados
 
 [Banking and Customer Transaction Data — Kaggle, por Yogesh Tekawade](https://www.kaggle.com/datasets/yogeshtekawade/banking-and-customer-transaction-data)
 
 Arquivos utilizados: `customer_data.csv`, `bank_data.csv` e `transaction_data.csv`.
-
 
 ## Extração automatizada com Python
 
@@ -83,12 +86,14 @@ A utilização do Python permitiu:
 
 **Observação:** nesta etapa, o Python foi utilizado exclusivamente para extração e armazenamento dos dados. O tratamento, a transformação e a modelagem foram realizados posteriormente no Power Query e no Power BI.
 
-
 ## Fluxo dos dados
-
 
 ![Fluxo completo do projeto Bancário](./fluxo-completo-projeto-bancario.png)
 
+A partir dos CSVs, o projeto passou a ter duas formas de consulta:
+
+- **Power BI:** CSV → Power Query → modelagem e medidas DAX → relatório interativo.
+- **Dashboard web:** CSV → Supabase → indicadores agregados → painel público no Lovable.
 
 ## Modelo
 
@@ -110,7 +115,7 @@ A estrutura principal é um modelo em floco de neve (*snowflake*).
 
 As janelas utilizadas nos indicadores devem ser verificadas nas medidas DAX do arquivo PBIX, pois há indicadores mensais, trimestrais e de últimos 60/90 dias.
 
-## Dashboard
+## Dashboard no Power BI
 
 Visões construídas:
 
@@ -120,7 +125,29 @@ Visões construídas:
 - Análise por região, cidade e perfil/canal.
 - Resumo da movimentação no último mês registrado.
 
-![Dashboard Banco](./dashboard-projeto-bancario.png)
+![Dashboard Banco no Power BI](./dashboard-projeto-bancario.png)
+
+## Dashboard público no Lovable
+
+A versão web do **Banco** permite explorar os indicadores da carteira pelo navegador, sem login. [Abrir o painel](https://banco-carlos-daniel.lovable.app/#dashboard).
+
+### Integração com o Supabase
+
+Os três CSVs foram carregados no Supabase, reunindo **1.000 agências, 10.000 clientes e 10.000 transações**. O aplicativo consulta **2.800 recortes de indicadores agregados** por ano, ciclo, região, cidade e perfil. Os registros individuais permanecem em tabelas privadas.
+
+A tela inicial mostra uma barra de progresso e libera o acesso ao painel ao concluir a carga. A partir daí, os filtros usam os dados já carregados no navegador, sem novas consultas ao Supabase a cada seleção e com o painel visível durante a troca.
+
+### Indicadores e navegação
+
+- Filtros de **ano, ciclo, região da agência, cidade da agência e perfil do cliente**, com a opção **Restaurar filtros**.
+- Cartões de **clientes cadastrados, elegíveis à recuperação, ativos em 90 dias, novos, recuperados, quase inativos e inativos**.
+- Gráfico de composição da carteira com as mesmas cores usadas nos cartões de cada categoria.
+- Velocímetros de **taxa de reativação** e **taxa de inatividade**, com metas ilustrativas de **pelo menos 10% de reativação** e **no máximo 40% de inatividade**.
+- Gráfico de transações com seleção de mês ou ciclo completo para consultar **quantidade de transações, valor transacionado e ticket médio**. Os valores financeiros ficam ocultos em recortes mensais com menos de cinco transações.
+
+### Exemplo de leitura
+
+No **Ciclo 01 de 2025**, com data de referência em **31/03/2025** e sem filtros adicionais, o painel web exibiu **807 transações**, **4,74% de reativação** e **55,62% de inatividade**. Nesse recorte, a reativação ficou abaixo da meta mínima e a inatividade ficou acima do limite.
 
 ## Limitações
 
@@ -136,5 +163,3 @@ Visões construídas:
 O dashboard completo está disponível para exploração no Power BI Desktop.
 
 📊 **[Baixar Power BI de Projeto Banco (.pbix)](./An%C3%A1lise%20Banco%20-%20Carteira%20de%20Clientes.pbix)**
-
-
